@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">HealthyUs</string>
+    <string name="txtSplash">Healthy Us</string>
+    <string name="txtSplashCalorie">Track Your Calories</string>
+    <string name="txtSplashDoctor">Interact with Doctors</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="txtLoginPage">Sign up to create your account</string>
+    <string name="txtEmailAddress">Enter your email address</string>
+    <string name="txtPassword">Enter your password</string>
+    <string name="btnLogin">Login</string>
+    <string name="txtHealthInfo">Include any diseases or allergies here</string>
+    <string name="txtMedication">Write down your medication here</string>
+    <string name="txtSignUpPageTitle">Health Condition Information</string>
+    <string name="txtEmailIdCreate">Enter your Email Id</string>
+    <string name="txtPasswordCreate">Create password</string>
+    <string name="btnDirectToSignInPage">Register and Sign In</string>
+    <string name="radFoodTracker">Food Tracker</string>
+    <string name="radFindADoctor">Find A Doctor</string>
+    <string name="btnGo">Go</string>
+    <string name="txtFoodTrackerTitle">Food Tracker</string>
+    <string name="txtFoodEntries">Enter your food items</string>
+    <string name="numCalories">Enter your calories</string>
+    <string name="btnCalorieDisplay">Submit</string>
+    <string name="txtResult">Result</string>
+    <string name="txtWarning">Enter values</string>
+</resources>
