@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
@@ -128,12 +129,17 @@ public class dbhelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE if exists " + TABLE8_NAME);
         onCreate(db);
     }
-    public void signUp(SQLiteDatabase db, String fName, String lName, String password, String email, String phone, Date birthDate){
+    public void signUp(SQLiteDatabase db, String fName, String lName, String password, String email, String phone, String birthDate){
         String hashedpassword = String.valueOf(password.hashCode());
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String strBirth = dateFormat.format(birthDate);
-        String query = "INSERT INTO Users (FirstName, LastName, BirthDate, Phone, Password, Email ) VALUES ("+ fName + "," + lName + "," + strBirth + "," + phone + "," + hashedpassword + "," + email + ");";
-        db.execSQL(query);
+        String query = "INSERT INTO Users (FirstName, LastName, BirthDate, Phone, Password, Email ) VALUES (\""+ fName + "\",\"" + lName + "\",\"" + birthDate + "\",\"" + phone + "\",\"" + hashedpassword + "\",\"" + email + "\");";
+        try{
+            db.execSQL(query);
+            System.out.println("Success");
+            Cursor c = db.rawQuery("SELECT * FROM Users WHERE UserId = 1",null);
+            System.out.println(DatabaseUtils.dumpCursorToString(c));
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
 }

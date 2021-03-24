@@ -23,7 +23,8 @@ public class SignUpPage extends AppCompatActivity {
         final EditText emailIdCreate = (EditText) findViewById(R.id.txtEmailIdCreate);
         final EditText passwordCreate = (EditText) findViewById(R.id.txtPasswordCreate);
         Button buttonDirectToSignIn = (Button) findViewById(R.id.btnDirectToSignInPage);
-
+        dbhelper dbhelper;
+        dbhelper = new dbhelper(this);
         buttonDirectToSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,6 +32,8 @@ public class SignUpPage extends AppCompatActivity {
                 medicationEntry = medications.getText().toString();
                 userEmailAddress = emailIdCreate.getText().toString();
                 userPassword = passwordCreate.getText().toString();
+                    dbhelper.signUp(dbhelper.getWritableDatabase(), "Bob", "TheBuilder", "asdf", "asdfgmail.com", "6042431324", "1939-04-23");
+
                 startActivity(new Intent(SignUpPage.this, SignInPage.class));
             }
         });
