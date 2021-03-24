@@ -10,6 +10,10 @@ import android.preference.PreferenceManager;
 
 import androidx.annotation.Nullable;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class dbhelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "HealthyUs";
     final static int DATABASE_VERSION = 2;
@@ -123,6 +127,13 @@ public class dbhelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE if exists " + TABLE7_NAME);
         db.execSQL("DROP TABLE if exists " + TABLE8_NAME);
         onCreate(db);
+    }
+    public void signUp(SQLiteDatabase db, String fName, String lName, String password, String email, String phone, Date birthDate){
+        String hashedpassword = String.valueOf(password.hashCode());
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String strBirth = dateFormat.format(birthDate);
+        String query = "INSERT INTO Users (FirstName, LastName, BirthDate, Phone, Password, Email ) VALUES ("+ fName + "," + lName + "," + strBirth + "," + phone + "," + hashedpassword + "," + email + ");";
+        db.execSQL(query);
     }
 
 }
